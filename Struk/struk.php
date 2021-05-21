@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8">
     <title>NOTA TRANSAKSI</title>
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <style>
     .invoice-box {
         max-width: 800px;
@@ -54,6 +54,7 @@
         background: #eee;
         border-bottom: 1px solid #ddd;
         font-weight: bold;
+
     }
     
     .invoice-box table tr.details td {
@@ -107,18 +108,19 @@
 
 
     <div class="invoice-box">
-        <table cellpadding="0" cellspacing="0">
+        <table class=""  cellpadding="0" cellspacing="0">
             <tr class="top">
                 <td colspan="5">
                     <table>
                         <tr>
                             <td class="title">
-                                <p style="font-size: 20px;">THE RESTO
+                                <p class="text-bold" style="font-size: 30px;font-weight: 900;">THE RESTO</p>
                             </td>
                             
-                            <td>
+                            <td class="">
+                                Tanggal : 
                                <?php
-                               $tanggal=date('Y-m-d');
+                               $tanggal=date('d M Y');
                                echo $tanggal;
                                ?>
                             </td>
@@ -137,9 +139,9 @@
                                 Kec.Purwokerto Selatan-Kab.Banyumas
                             </td>
                             
-                            <td>
+                            <td class="text-left float-right">
                                 The Resto<br>
-                                wwww.The-Resto.com<br>
+                                www.The-Resto.com<br>
                                 theResto@gmail.com
                             </td>
                         </tr>
@@ -148,10 +150,10 @@
             </tr>
             
             <tr class="heading">
-                <td>
+                <td colspan="4">
                     Kode Transaksi
                 </td>
-                
+            
                 <td>
                     <?php echo $_GET['kd'] ?>
                 </td>
@@ -162,7 +164,7 @@
                 <td></td>
             </tr>
             
-            <tr class="heading">
+            <tr class="heading text-center">
                 <td>NO</td>
                 <td>Nama Menu</td>
                 <td>Harga</td>
@@ -175,7 +177,7 @@
                 while($r=mysqli_fetch_array($a)){
                 $no++
             ?>
-            <tr class="item">
+            <tr class="item text-center">
                 <td><?php echo $no ?></td>
                 <td><?php echo $r['nama'] ?></td>
                 <td><?php echo $r['harga'] ?></td>
@@ -183,41 +185,42 @@
                 <td><?php echo $r['total'] ?></td>
             </tr>
             <?php } ?>
-            
-            <tr class="total">
+
+            <tr class="total" align="right">
                 <td></td>
                 <td></td>
                 <td></td>
-                <th align="right">Total :</th>
+                <th class="float-right" align="right">Total :</th>
                 <?php
                 $a = mysqli_query($con, "SELECT SUM(total) as TOTAL FROM transaksi WHERE no_nota='$_GET[kd]'");
                 $total = mysqli_fetch_array($a);
                 ?>
-                <td><?php echo $total['TOTAL'] ?></td>
+                <th class="text-center"><?php echo $total['TOTAL'] ?></th>
             </tr>
-            <tr class="total">
+            <tr class="total" align="right">
                 <td></td>
                 <td></td>
                 <td></td>
-                <th align="right">Bayar :</th>
+                <th class="float-right" align="right">Bayar :</th>
                 <?php
                 $b = mysqli_query($con, "SELECT bayar FROM transaksi WHERE no_nota='$_GET[kd]'");
                 $bayar = mysqli_fetch_array($b);
                 ?>
-                <td><?php echo $bayar['bayar'] ?></td>
+                <th class="text-center"><?php echo $bayar['bayar'] ?></th>
             </tr>
-            <tr class="total">
+            <tr class="total" align="right">
                 <td></td>
                 <td></td>
                 <td></td>
-                <th align="right">Kembalian :</th>
+                <th class="float-right" align="right">Kembalian :</th>
                 <?php
                 $c = mysqli_query($con, "SELECT kembalian FROM transaksi WHERE no_nota='$_GET[kd]'");
                 $kembalian = mysqli_fetch_array($c);
                 ?>
-                <td><?php echo $kembalian['kembalian'] ?></td>
+                <th class="text-center"><?php echo $kembalian['kembalian'] ?></th>
             </tr>
         </table>
+        
     </div>
 </body>
 </html>

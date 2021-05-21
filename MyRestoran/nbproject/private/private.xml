@@ -3,7 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/xampp/htdocs/Resto/MyRestoran/src/myrestoran/Register.java</file>
+            <file>file:/C:/xampp/htdocs/Resto/MyRestoran/src/myrestoran/koneksi.java</file>
+            <file>file:/C:/xampp/htdocs/Resto/MyRestoran/src/myrestoran/CRUD_Koneksi.java</file>
             <file>file:/C:/xampp/htdocs/Resto/MyRestoran/src/myrestoran/Transaksi.java</file>
+            <file>file:/C:/xampp/htdocs/Resto/MyRestoran/src/myrestoran/FormInputMenu.java</file>
+            <file>file:/C:/xampp/htdocs/Resto/MyRestoran/src/myrestoran/Home.java</file>
+            <file>file:/C:/xampp/htdocs/Resto/MyRestoran/src/myrestoran/Login.java</file>
         </group>
     </open-files>
 </project-private>
